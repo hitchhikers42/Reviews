@@ -9,9 +9,10 @@
   },
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "nodemon src/server"
+    "server": "nodemon src/server"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "mongoose": "^5.7.13",
