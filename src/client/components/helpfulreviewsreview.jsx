@@ -1,18 +1,20 @@
 import React from 'react';
 
-const HelpfulReviewsReview = (props) => (
+const HelpfulReviewsReview = ({review}) => (
   <div style={{flexDirection: 'column', width: '60%'}}>
     <div>
-      {'stars'}
+      {review.stars} stars
     </div>
     <div>
-      {'username then dot then time since reviews'}
+      {review.user.name} * {review.createdAt}
     </div>
-    <b>{'Review Title'}</b>
-    <p> {'review shortened to like 1.25 lines or roughly 150 character say then a show full review link which pops open a modal'} </p>
+    <b>{review.title}</b>
+    <div>
+      {review.text.slice(0, 120) + '...'} <a href='#modal'>Show Full Review</a>
+    </div>
     <br />
     <div>
-      <span>&nbsp;{201} of {235} people found this helpful</span>
+      <span>&nbsp;{review.nFoundHelpful} of {review.nHelpfulRatings} people found this helpful</span>
     </div>
   </div>
 );

@@ -15,9 +15,28 @@ class App extends React.Component {
         quality: 4.6,
         features: 4.6
       },
-      goodReview: {},
-      badReview: {},
-      reviews: [{}],
+      goodReview: {
+        stars: 4,
+        user: {
+          name: 'Bob Goodrating'
+        },
+        createdAt: (new Date()).toString(),
+        title: 'Good Rating Review',
+        text: 'Reviews seem to be one paragraph only. WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS',
+        nFoundHelpful: 200,
+        nHelpfulRatings: 237
+      },
+      badReview: {
+        stars: 2,
+        user: {
+          name: 'Bill Badrating'
+        },
+        createdAt: (new Date()).toString(),
+        title: 'Bad Rating Review',
+        text: 'Reviews seem to be one paragraph only. WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS',
+        nFoundHelpful: 194,
+        nHelpfulRatings: 248},
+      reviews: [{}, {}, {}],
       filters: {
         stars: [],
         locale: 'English'
@@ -42,8 +61,9 @@ class App extends React.Component {
 
   //this is for updating the filter state via other components
   updateFilter(update) {
-    let filters = _.extend(this.state.filters, update);
-    this.setState({ filters });
+    //let filters = _.extend(this.state.filters, update);
+    //this.setState({ filters });
+    console.log('filter woudl be updated... IF WE HAD ONE!');
   }
 
   render() {
