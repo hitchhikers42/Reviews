@@ -1,7 +1,6 @@
 import React from 'react';
-import RatingsSnapshot from './ratingsnapshot.jsx';
-import RatingsAverages from './ratingsaverages.jsx';
-import HelpfulReviews from './helpfulreviews.jsx';
+import RatingsSnapshot from './snapshot.jsx';
+import RatingsAverages from './averages.jsx';
 
 const Ratings = (props) => (
   <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>

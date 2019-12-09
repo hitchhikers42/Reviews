@@ -1,5 +1,5 @@
 import React from 'react';
-import HelpfulReview from './helpfulreviewsreview.jsx';
+import HelpfulReview from './review.jsx';
 
 //used to use flexGrow: 1 but this way of setting exact width seems better
 const HelpfulReviews = (props) => (

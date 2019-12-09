@@ -1,8 +1,8 @@
 import React from 'react';
 import fetch from '../lib/fetchProductData.js';
-import Ratings from './ratings.jsx';
-import HelpfulReviews from './helpfulreviews.jsx';
-import ReviewList from './reviewlist.jsx';
+import Ratings from './ratings/index.jsx';
+import HelpfulReviews from './helpfulreviews/index.jsx';
+import ReviewList from './reviewlist/index.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -75,9 +75,14 @@ class App extends React.Component {
           <button style={{float: 'right', backgroundColor: 'blue', color: 'white'}} onClick={(event) => writeReviewHandler(event)}>Write a Review</button>
         </div>
         <div style={{display: 'flex', flexDirection: 'column'}}>
-          <Ratings ratingsSnapshot={this.state.ratingsSnapshot} ratingsAverages={this.state.ratingsAverages}/>
-          <HelpfulReviews goodReview={this.state.goodReview} badReview={this.state.badReview} updateFilter={this.updateFilter}/>
-          <ReviewList reviews={this.state.reviews} filters={this.state.filters} updateFilter={this.updateFilter}/>
+          <Ratings ratingsSnapshot={this.state.ratingsSnapshot}
+            ratingsAverages={this.state.ratingsAverages}/>
+          <HelpfulReviews goodReview={this.state.goodReview}
+            badReview={this.state.badReview}
+            updateFilter={this.updateFilter}/>
+          <ReviewList reviews={this.state.reviews}
+            filters={this.state.filters}
+            updateFilter={this.updateFilter}/>
         </div>
       </div>
     );
