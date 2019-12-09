@@ -120,8 +120,8 @@ class App extends React.Component {
   //this sets up the initial state of the component with live data
   componentDidMount() {
     //fetch data
-    // fetch(0)
-    //   .then((blob) => this.setState(blob));
+    fetch(0)
+      .then((blob) => this.setState(blob));
   }
 
   //this purposefully does nothing because this is a feature far beyond our curent scope

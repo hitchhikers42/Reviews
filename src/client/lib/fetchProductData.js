@@ -1,3 +1,4 @@
+const axios = require('axios');
 const url = 'http://localserver:9001/api/';
 
 const fetchProductData = function(productId) {
