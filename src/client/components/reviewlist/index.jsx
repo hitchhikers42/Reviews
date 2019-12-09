@@ -9,8 +9,8 @@ class ReviewList extends React.Component {
     super(props);
     this.state = {
       viewableReviews: props.reviews.slice(0, 8),
-      start: 1,
-      end: 8,
+      start: Math.min(1, props.reviews.length),
+      end: Math.min(8, props.reviews.length),
       sorting: 'Most Recent'
     };
     this.updateViewableReviews = this.updateViewableReviews.bind(this);
@@ -27,7 +27,7 @@ class ReviewList extends React.Component {
       <div style={{display: 'flex', flexDirection: 'column'}}>
         <Header start={this.state.start}
           end={this.state.end}
-          nReviews={332}
+          nReviews={this.props.reviews.length}
           updateFilter={this.props.updateFilter} />
         {this.state.viewableReviews.map((review, i) => (
           <div key={i}>
@@ -37,7 +37,7 @@ class ReviewList extends React.Component {
         ))}
         <Footer start={this.state.start}
           end={this.state.end}
-          nReviews={332}
+          nReviews={this.props.reviews.length}
           updateViewable={this.updateViewableReviews}/>
       </div>
     );

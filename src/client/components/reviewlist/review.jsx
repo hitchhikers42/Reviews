@@ -4,52 +4,45 @@ const ReviewListReview = ({review}) => (
   <div style={{display: 'flex', flexDirection: 'row'}}>
     <div style={{width: '20%', flexDirection: 'column'}}>
       <div>
+        <img src={review.user.image || 'https://epicqueststore.com/wp-content/plugins/profilegrid-user-profiles-groups-and-communities/public/partials/images/default-group.png'} />
         <span>
-          {'generic image'}
-        </span>
-        <span>
-          {'Username'}
+          {review.user.name}
         </span>
       </div>
       <div>
-        {'location'}
+        {review.user.location}
       </div>
       <div>
-        Review <b>{1}</b>
+        Reviews <b>{review.user.nReviews}</b>
       </div>
       <div>
-        Votes <b>{4}</b>
+        Votes <b>{review.user.nVotes}</b>
       </div>
     </div>
     <div style={{flexDirection: 'column', width: '60%'}}>
       <div>
         <div>
-          {'stars and data'}
+          {review.rating.stars} * {review.createdAt}
         </div>
-        <b>{'Review Title'}</b>
-        <div>
-          {'Reviews seem to be one paragraph only. WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS WORDS AND WORDS AND WORDS AND WORDS AND WORDS'}
-        </div>
+        <b>{review.title}</b>
+        {review.text.split('\n').map((text, i) => <p key={i}>{text}</p>)}
       </div>
       <br />
       <div>
-        {'checkmark or x'} <b>{'Yes (or No)'},</b>&nbsp; I {'(do not) recommend'} this product.
+        {review.recommended ? 'checkmark' : 'x'} {review.recommended ?
+          <span><b>Yes,</b> I do</span> :
+          <span><b>No,</b> I do not</span>}
+        &nbsp;recommend this product.
       </div>
       <br />
       <div>
-          &nbsp;Helpful? <button>Yes - {'4'}</button> <button>No - {'1'}</button><button>Report</button>
+          &nbsp;Helpful? <button>Yes - {review.nFoundHelpful}</button> <button>No - {review.nHelpfulRatings - review.nFoundHelpful}</button><button>Report</button>
       </div>
     </div>
     <div style={{width: '20%', alignSelf: 'center'}}>
-      <div>
-        Optional Value Bar
-      </div>
-      <div>
-        Optional Quality bar
-      </div>
-      <div>
-        Optional Features Bar
-      </div>
+      {review.rating.value ? <div>Value Bar: {review.rating.value}</div> : null}
+      {review.rating.quality ? <div>Quality Bar: {review.rating.quality}</div> : null}
+      {review.rating.features ? <div>Features Bar: {review.rating.features}</div> : null}
     </div>
   </div>
 );

@@ -3,7 +3,7 @@ import React from 'react';
 const HelpfulReviewsReview = ({review}) => (
   <div style={{flexDirection: 'column', width: '60%'}}>
     <div>
-      {review.stars} stars
+      {review.rating.stars} stars
     </div>
     <div>
       {review.user.name} * {review.createdAt}
