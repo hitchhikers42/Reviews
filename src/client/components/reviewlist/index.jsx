@@ -29,7 +29,7 @@ class ReviewList extends React.Component {
           end={this.state.end}
           nReviews={this.props.reviews.length}
           updateFilter={this.props.updateFilter} />
-        {this.state.viewableReviews.map((review, i) => (
+        {this.props.reviews.map((review, i) => (
           <div key={i}>
             <hr />
             <Review review={review}/>

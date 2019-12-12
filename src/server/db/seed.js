@@ -1,2 +1,3 @@
-const {user, review, product} = require('./wrapper');
+//const {user, review, product} = require('./wrapper');
+const Product = require('./wrapper');
 
