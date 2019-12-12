@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = 'mongodb://localhost/hrr42reviews'
+const uri = 'mongodb://localhost/hrr42reviews';
 const db = mongoose.connect(uri);
 mongoose.Promise = global.Promise;
 
@@ -7,28 +7,40 @@ const usersSchema = new mongoose.Schema({
   id: Number,
   name: String,
   location: String,
-  reviewIds: Array, //holds the id numbers for the reviews
-  nVotes: Number
+  reviewIds: [{ type: Schema.Types.ObjectId, ref: 'Review' }], //holds the id numbers for the reviews
+  nVotes: Number,
+  image: String //html stuff probs
 });
 
 const reviewsSchema = new mongoose.Schema({
   id: Number,
-  userId: Number,
-  productId: Number,
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  productId: { type: Schema.Types.ObjectId, ref: 'Product' },
   createdAt: Date,
-  starRating: Number,
+  rating: {
+    stars: Number,
+    value: Number,
+    quality: Number,
+    features: Number
+  },
   text: String,
   doesRecommend: Boolean,
-  valueRating: Number,
-  qualityRating: Number,
-  featuresRating: Number,
-  nHelpful: Number,
-  nNotHelpful: Number
+  nFoundHelpful: Number,
+  nHelpfulRatings: Number
 });
 
 const productsSchema = new mongoose.Schema({
   id: Number,
-  reviewIds: Array //the array of reviews for this item
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }], //the array of reviews for this item,
+  goodReview: { type: Schema.Types.ObjectId, ref: 'Review' },
+  badReview: { type: Schema.Types.ObjectId, ref: 'Review' },
+  ratingsSnapshot: Array,
+  ratingsAverages: {
+    overall: Number,
+    value: Number,
+    quality: Number,
+    features: Number
+  }
 });
 
 const User = mongoose.model('User', usersSchema);
