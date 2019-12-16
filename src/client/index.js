@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+import Review from './components/index.jsx';
 
 ReactDOM.render(
-  <App />,
- document.getElementById('app')
+  <Review style={{margin: '10%'}}/>,
+  document.getElementById('review')
 );
