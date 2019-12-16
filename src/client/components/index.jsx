@@ -4,7 +4,7 @@ import Ratings from './ratings/index.jsx';
 import HelpfulReviews from './helpfulreviews/index.jsx';
 import ReviewList from './reviewlist/index.jsx';
 
-class App extends React.Component {
+class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,4 +103,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Review;
