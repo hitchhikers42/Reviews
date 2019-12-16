@@ -4,5 +4,5 @@ import Review from './components/index.jsx';
 
 ReactDOM.render(
   <Review style={{margin: '10%'}}/>,
-  document.getElementById('review')
+  document.getElementById('reviews')
 );
