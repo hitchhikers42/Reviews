@@ -8,7 +8,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build": "webpack -d --watch",
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p",
     "server": "nodemon src/server"
   },
   "dependencies": {
